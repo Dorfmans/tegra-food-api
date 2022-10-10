@@ -4,4 +4,10 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+const eslint = {
+  eslint: {
+    ignoreDuringBuilds: true
+  }
+}
+
+module.exports = nextConfig, eslint
