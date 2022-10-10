@@ -10,4 +10,10 @@ const eslint = {
   }
 }
 
-module.exports = nextConfig, eslint
+const typescript = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+}
+
+module.exports = nextConfig, eslint, typescript
