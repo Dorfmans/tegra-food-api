@@ -49,7 +49,7 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
 
         const query = req.query
-        let order = 1
+        let order = null
         let filterResult = {}
         let categoryResult = {}
         let minAndMaxPrice = {}
@@ -67,6 +67,10 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {
             if (orderBy == 'DESC') {
                 order = -1
             }
+            if (orderBy == 'ASC') {
+                order = 1
+            }
+
         }
 
         if (query?.filter) {
@@ -133,7 +137,7 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {
             .find(minAndMaxPrice)
             .find(categoryResult)
             .find(filterResult)
-            .sort({ title: order })
+            .sort(order ? { title: order } : null)
             .limit(10)
             .skip((page - 1) * 10)
 
