@@ -5,7 +5,6 @@ import nc from 'next-connect'
 import { corsPolicy } from "../../middlewares/corsPolicy"
 import { productsModels } from "../../models/productsModels"
 import { upload } from "../../services/cosmicImageUploader"
-import { ALL } from "dns"
 
 const logIn = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
@@ -67,17 +66,7 @@ const clearCart = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 }
 
-const clearAllCart = async (req: NextApiRequest, res: NextApiResponse) => {
-    try {
 
-        await userModels.updateOne({ _id: req.query.userId }, { $pullAll: { cart: [] } })
-
-        return res.status(200).json({ message: "Product removed from cart" })
-    } catch (e) {
-        alert(e)
-        return res.status(500).json({ error: 'Something went wrong' })
-    }
-}
 
 
 const handler = nc()
