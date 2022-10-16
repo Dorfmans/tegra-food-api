@@ -39,7 +39,7 @@ const signUp = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(201).json({ message: 'User Created' })
 
     } catch (e) {
-        console.log(e)
+        alert(e)
         return res.status(500).json({ error: 'Something went wrong...' })
     }
 }

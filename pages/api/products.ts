@@ -40,8 +40,8 @@ const postProducts = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(201).json({ message: 'Product Created' })
 
     } catch (e) {
-        console.log(e)
-        return res.status(400).json({ error: 'Cannot post your product' })
+        alert(e)
+        return res.status(500).json({ error: 'Cannot post your product' })
     }
 }
 
@@ -148,7 +148,7 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(200).json(products)
 
     } catch (e) {
-        console.log(e)
+        alert(e)
         return res.status(500).json({ error: 'Cannot get products' })
     }
 }

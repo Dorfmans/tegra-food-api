@@ -17,7 +17,7 @@ const logIn = async (req: NextApiRequest, res: NextApiResponse) => {
 
         return res.status(200).json(user)
     } catch (e) {
-        console.log(e)
+        alert(e)
         res.status(500).json({ error: 'Something went wrong...' })
     }
 }
@@ -43,7 +43,8 @@ const addToCart = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(200).json({ message: "Product added to cart" })
 
     } catch (e) {
-        console.log(e)
+        alert(e)
+        return res.status(500).json({ error: "Something went wrong" })
     }
 }
 
@@ -60,7 +61,7 @@ const clearCart = async (req: NextApiRequest, res: NextApiResponse) => {
 
         return res.status(200).json({ message: "Product removed from cart" })
     } catch (e) {
-        console.log(e)
+        alert(e)
         return res.status(500).json({ error: 'Something went wrong' })
     }
 }
