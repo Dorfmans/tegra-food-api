@@ -148,7 +148,6 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(200).json(products)
 
     } catch (e) {
-        alert(e)
         return res.status(500).json({ error: 'Cannot get products' })
     }
 }

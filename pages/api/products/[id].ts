@@ -64,7 +64,6 @@ const putProducts = async (req: any, res: NextApiResponse) => {
             res.status(200).json({ message: 'Product updated successfully' })
         }
     } catch (e) {
-        alert(e)
         return res.status(500).json({ error: 'Cannot update this product' })
     }
 }
@@ -85,9 +84,7 @@ const deleteProduct = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
     } catch (e) {
-        alert(e)
         return res.status(500).json({ error: 'Cannot delete this product' })
-
     }
 
 }
