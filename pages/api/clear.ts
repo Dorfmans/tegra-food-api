@@ -7,7 +7,7 @@ import { corsPolicy } from "../../middlewares/corsPolicy"
 const clearAllCart = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
 
-        await userModels.updateOne({ _id: req.query.userId }, { $pullAll: { cart: ['id'] } })
+        await userModels.updateOne({ _id: req.query.userId }, { $pullAll: { cart: [{}] } })
 
         return res.status(200).json({ message: "Enjoy your Meal" })
     } catch (e) {
