@@ -74,7 +74,5 @@ const handler = nc()
     .get(logIn)
     .put(addToCart)
     .delete(clearCart)
-    .delete(clearAllCart)
-
 
 export default corsPolicy(dbConnection(handler))
